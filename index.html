@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <title>Memory Game</title>
+    <link rel="manifest" href="/memory-game/manifest.json" />
+    <link rel="stylesheet" href="css/normalize.css" data-norem inline />
+    <!-- Not parsed by rem.js -->
+    <link rel="stylesheet" href="css/index.css" inline />
+  </head>
+  <body>
+    <header role="banner">
+      <h1>Memory Game</h1>
+    </header>
+    <!--/.header-->
+
+    <main role="main">
+      <section id="rules-section" role="region" aria-labelledby="rules-heading">
+        <h2 id="rules-heading">
+          <button
+            aria-controls="rules"
+            aria-pressed="false"
+            aria-expanded="false"
+          >
+            <span role="img" aria-label="Down arrow">⇩</span>
+            How the Game Works
+          </button>
+        </h2>
+
+        <ul id="rules">
+          <li>
+            The deck is made up of eight different pairs of cards, each with
+            different symbols on one side.
+          </li>
+          <li>
+            The cards are arranged randomly on the grid with the symbol face
+            down.
+          </li>
+          <li>
+            The gameplay rules are very simple: flip over two hidden cards at a
+            time to locate the ones that match!
+          </li>
+        </ul>
+      </section>
+
+      <div
+        class="keyboard-support"
+        role="region"
+        aria-labelledby="keyboard-support-heading"
+      >
+        <h2 id="keyboard-support-heading">Keyboard Shortcuts</h2>
+        <ul class="keys">
+          <li class="home">
+            <kbd>HOME</kbd>
+          </li>
+          <li>
+            <kbd
+              ><img
+                src="images/arrows.svg"
+                alt="Keyboard arrow keys (left, up, down and right)"
+            /></kbd>
+          </li>
+          <li class="end">
+            <kbd>END</kbd>
+          </li>
+        </ul>
+
+        <button type="button">
+          start <span role="img" aria-label="winking emoji">😉</span>
+        </button>
+
+        <p>
+          <small>
+            <a
+              href="https://www.vexels.com/vectors/preview/153199/keyboard-arrow-keys-stroke-icon"
+            >
+              Keyboard arrow keys icon
+            </a>
+            | designed by Vexels
+          </small>
+        </p>
+      </div>
+      <!--/.instructions-section-->
+
+      <section
+        class="state-options-section"
+        role="region"
+        aria-labelledby="state-options-heading"
+      >
+        <h2 id="state-options-heading">Game State and Options</h2>
+
+        <ul id="state">
+          <li class="moves-record"><!-- 0 Moves --></li>
+          <li class="timer" role="timer" aria-label="Game Timer">
+            <!-- 00:00 -->
+          </li>
+          <li class="stars">
+            <ul class="stars-list">
+              <!-- <li class="star">
+              <span role="img" aria-label="Star">★</span>
+            </li> -->
+            </ul>
+          </li>
+        </ul>
+        <!--/.state-list-->
+
+        <button class="reset" type="reset">
+          <span role="img" aria-label="Reset icon">↺</span>
+        </button>
+
+        <div style="clear: both"></div>
+      </section>
+      <!--/.state-and-options-section-->
+
+      <section
+        class="board-section"
+        role="region"
+        aria-labelledby="board-heading"
+      >
+        <h2 id="board-heading">Game Board</h2>
+
+        <ul
+          class="board"
+          role="grid"
+          aria-multiselectable="true"
+          aria-label="Game Board"
+          aria-describedby="rules-section"
+          aria-controls="status state modal-container"
+        >
+          <li class="row" role="row">
+            <ul>
+              <!-- <li class="card">
+          <button type="button" aria-selected="false" data-matched="false" role="gridcell" aria-label="card x" data-id="" data-num="" data-name="" tabindex="">
+            <img src="" alt="" class="back">
+            <div class="front"></div>
+          </button>
+        </li> -->
+            </ul>
+          </li>
+          <li class="row" role="row">
+            <ul></ul>
+          </li>
+          <li class="row" role="row">
+            <ul></ul>
+          </li>
+          <li class="row" role="row">
+            <ul></ul>
+          </li>
+        </ul>
+
+        <div id="status" role="status" aria-live="assertive" aria-atomic="true">
+          <div id="character"><!-- Killua (anime character) --></div>
+          <div id="matching-result"><!-- match | different | done --></div>
+        </div>
+        <!--/.status-->
+      </section>
+      <!--/.game-board-section-->
+
+      <div id="modal-container" data-visible="false">
+        <div
+          id="result-modal"
+          role="alertdialog"
+          aria-label="result"
+          aria-describedby="moves-time play-again"
+          aria-modal="true"
+        >
+          <p id="moves-time">
+            <!-- x moves in y minutes and z seconds -->
+          </p>
+          <ul class="stars-list">
+            <!-- ★★★ -->
+          </ul>
+          <button id="play-again" type="reset" class="reset">Play again</button>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+      integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/css3-support.js"></script>
+  </body>
+</html>
